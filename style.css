@@ -1,0 +1,41 @@
+header ,.row3{
+    background-color:rgb(60, 60, 60);
+    padding: 20px;
+    margin-top: 0px;
+    font-weight: bolder;
+    color: white;
+    text-align: center;
+}
+.col-2 {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+.col1 ,.col3{
+display: block;
+background-color:#f1f1f1;
+height: 250px;
+
+}
+.col2 {
+    display: block;
+    border-style: ridge;
+   height: 250px;
+
+}
+button{
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+.card{
+float: left;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: royalblue;
+   
+}

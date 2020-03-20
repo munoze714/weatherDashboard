@@ -5,14 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <div class="container">
+        <div class="row1 row">
+            <div class="col1 col-4">
+                <label>Search for a City</label>
+                <input><button><i class="fa fa-search"></i></button>
+
+            </div>
+            <div class="col2 col-8">
+                <h2 id="displayCity"><i class="fa fa-cloud" style="color: whitesmoke;"></i></h2>
+                <div id="displayTemp"></div>
+            </div>
+        </div>
+        <div class="row2 row">
+            <div class="col3 col-4">
+                <div id="searchStorage"></div>
+            </div>
+            <div class="col4 col-8">
+                <div class="row3 row">
+                    <h6>5-Day Forecast:</h6>
+                </div>
+
+                <div class="col-2">
+                    <div class="card"></div>
+                </div>
+                <div class="col-2">
+                    <div class="card"></div>
+                </div>
+                <div class="col-2">
+                    <div class="card"></div>
+                </div>
+                <div class="col-2">
+                    <div class="card"></div>
+                </div>
+                <div class="col-2">
+                    <div class="card"></div>
+                </div>
 
 
+            </div>
+        </div>
 
+    </div>
     <script src="./script.js"></script>
 </body>
 
