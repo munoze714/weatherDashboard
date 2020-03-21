@@ -1,4 +1,4 @@
-header ,.row3{
+header {
     background-color:rgb(60, 60, 60);
     padding: 20px;
     margin-top: 0px;
@@ -11,17 +11,19 @@ header ,.row3{
   width: 25%;
   padding: 0 10px;
 }
-.col1 ,.col3{
+.col1 {
 display: block;
 background-color:#f1f1f1;
 height: 250px;
+font-style: italic;
+font-weight: bolder;
 
 }
 .col2 {
-    display: block;
-    border-style: ridge;
+   display: block;
+   border-style: ridge;
    height: 250px;
-
+   background:rgb(189, 216, 238);
 }
 button{
   background: #2196F3;

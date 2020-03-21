@@ -21,41 +21,21 @@
         <div class="row1 row">
             <div class="col1 col-4">
                 <label>Search for a City</label>
-                <input><button><i class="fa fa-search"></i></button>
-
-            </div>
-            <div class="col2 col-8">
-                <h2 id="displayCity"><i class="fa fa-cloud" style="color: whitesmoke;"></i></h2>
-                <div id="displayTemp"></div>
-            </div>
-        </div>
-        <div class="row2 row">
-            <div class="col3 col-4">
+                <input id="inputSearch"><button id="button"><i class="fa fa-search"></i></button>
+                <hr>
                 <div id="searchStorage"></div>
             </div>
-            <div class="col4 col-8">
-                <div class="row3 row">
-                    <h6>5-Day Forecast:</h6>
-                </div>
-
-                <div class="col-2">
-                    <div class="card"></div>
-                </div>
-                <div class="col-2">
-                    <div class="card"></div>
-                </div>
-                <div class="col-2">
-                    <div class="card"></div>
-                </div>
-                <div class="col-2">
-                    <div class="card"></div>
-                </div>
-                <div class="col-2">
-                    <div class="card"></div>
-                </div>
-
-
+            <div class="col2 col-8">
+                <h1 id="displayCity"></h1>
+                <div id="displayTemp"></div>
+                <div id="displayWind"></div>
+                <div id="displayHumidity"></div>
             </div>
+        </div>
+
+        <div class="col3 col-8 offset-md-4">
+            <h2>5-Day Forecast:</h2>
+            <div id="forecastDays"></div>
         </div>
 
     </div>
