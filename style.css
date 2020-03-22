@@ -10,6 +10,7 @@ header {
   float: left;
   width: 25%;
   padding: 0 10px;
+  column-gap: 10px;
 }
 .col1 {
 display: block;
@@ -34,10 +35,12 @@ button{
   cursor: pointer;
 }
 .card{
-float: left;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: 150px;
+  width: 100px;
   text-align: center;
+  font-size: 10px;
+  color: white;
   background-color: royalblue;
    
 }

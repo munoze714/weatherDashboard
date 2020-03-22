@@ -6,10 +6,10 @@ $(document).ready(function () {
             url: url,
             type: "get",
         }).then(function (data) {
-            $("#displayCity").text(data.name).append("<i>").attr("fa fa-cloud")
+            $("#displayCity").text(data.name)
             $("#displayTemp").text("Temperature: " + data.main.temp + "F")
             $("#displayWind").text("Wind Speed : " + data.wind.speed + "Mph")
-            $("#displayHumidity").text("Humidity: " + data.main.humidity + "%")
+            $("#displayHumidity").text("Humidity " + data.main.humidity + "%")
             weekDisplay(searchValue)
         })
     }
@@ -20,8 +20,7 @@ $(document).ready(function () {
             url: url,
             type: "get",
         }).then(function (data) {
-            // console.log(data)   
-
+            // console.log(data)
             var forecastArray = [];
             for (var i = 0; i < data.list.length; i++) {
                 //console.log("each single thing", data.list[i].dt_txt.split(' ')[1])
@@ -29,41 +28,28 @@ $(document).ready(function () {
                     forecastArray.push(data.list[i])
                 }
             }
-            console.log('its all said and done!!', forecastArray);
+            // console.log('its all said and done!!', forecastArray);
 
             for (var i = 0; i < forecastArray.length; i++) {
-                var cardCol = $("<div>").attr(".col-2")
-                var cardDisplay = $("<div>").attr(".card")
-                cardDisplay.text("hi")
-
+                var icon = forecastArray[i].weather[0].icon
+                // console.log(icon)
+                var weatherIcon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + icon + "@2x.png")
+                var cardCol = $("<div>").attr("class", "col-2")
+                var cardDisplay = $("<div>").attr("class", "card")
+                // "http://openweathermap.org/img/wn/10d@2x.png>" url for icon
+                cardDisplay.text(forecastArray[i].dt_txt + "Temp: " + forecastArray[i].main.temp +
+                    " Humidity " + forecastArray[i].main.humidity)
+                // console.log(weatherIcon)
                 $("#forecastDays").append(cardCol)
                 cardCol.append(cardDisplay)
-                // if ()
-
+                cardDisplay.prepend(weatherIcon)
             }
-
-
-
-
-
         })
-
-
-
-
-
-
-
     }
 
-
-
-
     $("#button").on("click", function () {
-
         // console.log("click");
         // console.log($("#inputSearch").val());
         searchWeather($("#inputSearch").val())
     })
-
 });
