@@ -10,12 +10,12 @@ header {
   float: left;
   width: 25%;
   padding: 0 10px;
-  column-gap: 10px;
+  /* margin: ; */
 }
 .col1 {
 display: block;
 background-color:#f1f1f1;
-height: 250px;
+height: auto;
 font-style: italic;
 font-weight: bolder;
 
@@ -39,7 +39,8 @@ button{
   height: 150px;
   width: 100px;
   text-align: center;
-  font-size: 10px;
+  font-size: 15px;
+  font-weight: bolder;
   color: white;
   background-color: royalblue;
    

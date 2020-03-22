@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
     function searchWeather(searchValue) {
@@ -7,9 +8,13 @@ $(document).ready(function () {
             type: "get",
         }).then(function (data) {
             $("#displayCity").text(data.name)
+            var icon = data.weather[0].icon
+            var DisplayIcon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + icon + "@2x.png")
+            // $("#displayCity").html("<img>")
             $("#displayTemp").text("Temperature: " + data.main.temp + "F")
             $("#displayWind").text("Wind Speed : " + data.wind.speed + "Mph")
             $("#displayHumidity").text("Humidity " + data.main.humidity + "%")
+            $("#displayCity").append(DisplayIcon)
             weekDisplay(searchValue)
         })
     }
@@ -29,7 +34,6 @@ $(document).ready(function () {
                 }
             }
             // console.log('its all said and done!!', forecastArray);
-
             for (var i = 0; i < forecastArray.length; i++) {
                 var icon = forecastArray[i].weather[0].icon
                 // console.log(icon)
@@ -37,7 +41,7 @@ $(document).ready(function () {
                 var cardCol = $("<div>").attr("class", "col-2")
                 var cardDisplay = $("<div>").attr("class", "card")
                 // "http://openweathermap.org/img/wn/10d@2x.png>" url for icon
-                cardDisplay.text(forecastArray[i].dt_txt + "Temp: " + forecastArray[i].main.temp +
+                cardDisplay.text("Temp: " + forecastArray[i].main.temp +
                     " Humidity " + forecastArray[i].main.humidity)
                 // console.log(weatherIcon)
                 $("#forecastDays").append(cardCol)
