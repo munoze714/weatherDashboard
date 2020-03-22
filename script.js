@@ -18,9 +18,9 @@ $(document).ready(function () {
             weekDisplay(searchValue)
         })
     }
-
+    // https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather
     function weekDisplay(weekValue) {
-        var url = "https://api.openweathermap.org/data/2.5/forecast?q=" + weekValue + "&appid=b6c076c64edd480f39bbc31ea63b4a0f&units=imperial"
+        var url = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=" + weekValue + "&appid=b6c076c64edd480f39bbc31ea63b4a0f&units=imperial"
         $.ajax({
             url: url,
             type: "get",
@@ -37,7 +37,7 @@ $(document).ready(function () {
             for (var i = 0; i < forecastArray.length; i++) {
                 var icon = forecastArray[i].weather[0].icon
                 // console.log(icon)
-                var weatherIcon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + icon + "@2x.png")
+                var weatherIcon = $("<img>").attr("src", "https://cors-anywhere.herokuapp.com/http://openweathermap.org/img/wn/" + icon + "@2x.png")
                 var cardCol = $("<div>").attr("class", "col-2")
                 var cardDisplay = $("<div>").attr("class", "card")
                 // "http://openweathermap.org/img/wn/10d@2x.png>" url for icon
