@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     function searchWeather(searchValue) {
-        var url = "http://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=b6c076c64edd480f39bbc31ea63b4a0f&units=imperial"
+        var url = "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=b6c076c64edd480f39bbc31ea63b4a0f&units=imperial"
         $.ajax({
             url: url,
             type: "get",
@@ -20,7 +20,7 @@ $(document).ready(function () {
     }
 
     function weekDisplay(weekValue) {
-        var url = "http://api.openweathermap.org/data/2.5/forecast?q=" + weekValue + "&appid=b6c076c64edd480f39bbc31ea63b4a0f&units=imperial"
+        var url = "https://api.openweathermap.org/data/2.5/forecast?q=" + weekValue + "&appid=b6c076c64edd480f39bbc31ea63b4a0f&units=imperial"
         $.ajax({
             url: url,
             type: "get",
@@ -55,5 +55,6 @@ $(document).ready(function () {
         // console.log("click");
         // console.log($("#inputSearch").val());
         searchWeather($("#inputSearch").val())
+        // empty($("#inputSearch"))
     })
 });
