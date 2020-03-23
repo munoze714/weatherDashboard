@@ -1,13 +1,15 @@
+var date = moment().format("MM/DD/YYYY");
 
 $(document).ready(function () {
 
     function searchWeather(searchValue) {
-        var url = "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=b6c076c64edd480f39bbc31ea63b4a0f&units=imperial"
+        $("#forecastDays").empty(searchValue)
+        var url = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=b6c076c64edd480f39bbc31ea63b4a0f&units=imperial"
         $.ajax({
             url: url,
             type: "get",
         }).then(function (data) {
-            $("#displayCity").text(data.name)
+            $("#displayCity").text(data.name + "(" + date + ")")
             var icon = data.weather[0].icon
             var DisplayIcon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + icon + "@2x.png")
             // $("#displayCity").html("<img>")
@@ -26,6 +28,7 @@ $(document).ready(function () {
             type: "get",
         }).then(function (data) {
             // console.log(data)
+
             var forecastArray = [];
             for (var i = 0; i < data.list.length; i++) {
                 //console.log("each single thing", data.list[i].dt_txt.split(' ')[1])
@@ -37,24 +40,62 @@ $(document).ready(function () {
             for (var i = 0; i < forecastArray.length; i++) {
                 var icon = forecastArray[i].weather[0].icon
                 // console.log(icon)
-                var weatherIcon = $("<img>").attr("src", "https://cors-anywhere.herokuapp.com/http://openweathermap.org/img/wn/" + icon + "@2x.png")
+                var weatherIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png")
                 var cardCol = $("<div>").attr("class", "col-2")
                 var cardDisplay = $("<div>").attr("class", "card")
+                var text = $('<p>')
                 // "http://openweathermap.org/img/wn/10d@2x.png>" url for icon
-                cardDisplay.text("Temp: " + forecastArray[i].main.temp +
-                    " Humidity " + forecastArray[i].main.humidity)
+                text.text(forecastArray[i].dt_txt.split(" ")[0] + " Temp: " + forecastArray[i].main.temp +
+                    " Humidity: " + forecastArray[i].main.humidity)
                 // console.log(weatherIcon)
-                $("#forecastDays").append(cardCol)
+                cardDisplay.prepend(weatherIcon, text)
                 cardCol.append(cardDisplay)
-                cardDisplay.prepend(weatherIcon)
+                $("#forecastDays").append(cardCol)
             }
         })
     }
+
+    function saveSearch(newSearch) {
+        if (localStorage.getItem("history")) {
+            var newHistory = JSON.parse(localStorage.getItem("history"))
+            newHistory.push(newSearch)
+            var strHistory = JSON.stringify(newHistory)
+            localStorage.setItem("history", strHistory)
+
+        } else {
+            var newHistory = []
+            newHistory.push(newSearch)
+            var strHistory = JSON.stringify(newHistory)
+            localStorage.setItem("history", strHistory)
+        }
+    }
+
+    function displaySearch() {
+        var displayLocal = JSON.parse(localStorage.getItem("history"))
+
+        if (displayLocal) {
+            for (var i = 0; i < displayLocal.length; i++) {
+                var searchTerm = $("<p>").text(displayLocal[i])
+                $("#searchStorage").append(searchTerm)
+            }
+            $("p").on("click", function () {
+                var htmlString = $(this).html();
+                searchWeather(htmlString)
+            })
+        }
+    }
+
+    displaySearch()
 
     $("#button").on("click", function () {
         // console.log("click");
         // console.log($("#inputSearch").val());
         searchWeather($("#inputSearch").val())
         // empty($("#inputSearch"))
+        saveSearch($("#inputSearch").val())
+    })
+
+    $("#clearLocal").on("click", function () {
+        localStorage.clear();
     })
 });

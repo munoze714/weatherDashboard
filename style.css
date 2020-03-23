@@ -13,9 +13,10 @@ header {
   /* margin: ; */
 }
 .col1 {
-display: block;
+  /* grid-column: col 1;
+  grid-row: row 2 / span 2; */
 background-color:#f1f1f1;
-height: auto;
+/* max-height: 100px; */
 font-style: italic;
 font-weight: bolder;
 
@@ -36,7 +37,7 @@ button{
 }
 .card{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  height: 150px;
+  height: 200px;
   width: 100px;
   text-align: center;
   font-size: 15px;
