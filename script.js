@@ -4,27 +4,49 @@ $(document).ready(function () {
 
     function searchWeather(searchValue) {
         $("#forecastDays").empty(searchValue)
-        var url = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=b6c076c64edd480f39bbc31ea63b4a0f&units=imperial"
+        var apiUrl = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=b6c076c64edd480f39bbc31ea63b4a0f&units=imperial"
         $.ajax({
-            url: url,
+            url: apiUrl,
             type: "get",
         }).then(function (data) {
+            console.log(data)
             $("#displayCity").text(data.name + "(" + date + ")")
             var icon = data.weather[0].icon
             var DisplayIcon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + icon + "@2x.png")
-            // $("#displayCity").html("<img>")
             $("#displayTemp").text("Temperature: " + data.main.temp + "F")
             $("#displayWind").text("Wind Speed : " + data.wind.speed + "Mph")
             $("#displayHumidity").text("Humidity " + data.main.humidity + "%")
             $("#displayCity").append(DisplayIcon)
             weekDisplay(searchValue)
+            var lat = data.coord.lat
+            var lon = data.coord.lon
+
+            uvDisplay(lat, lon)
         })
     }
+
+    function uvDisplay(lat, lon) {
+        var apiUrl = "http://api.openweathermap.org/data/2.5/uvi?appid=b6c076c64edd480f39bbc31ea63b4a0f&lat=" + lat + "&lon=" + lon
+
+        $.ajax({
+            url: apiUrl,
+            method: "get",
+        }).then(function (data) {
+            // console.log(data)
+            // console.log(data.value)
+            var uvIndex = $("<div>").attr("id", "uvDisplay")
+            $(".col2").append(uvIndex)
+            $("#uvDisplay").text("UV Index: " + data.value)
+            uvIndex.append($("#uvDisplay"))
+
+        })
+    }
+
     // https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather
     function weekDisplay(weekValue) {
-        var url = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=" + weekValue + "&appid=b6c076c64edd480f39bbc31ea63b4a0f&units=imperial"
+        var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=" + weekValue + "&appid=b6c076c64edd480f39bbc31ea63b4a0f&units=imperial"
         $.ajax({
-            url: url,
+            url: apiUrl,
             type: "get",
         }).then(function (data) {
             // console.log(data)
@@ -84,7 +106,6 @@ $(document).ready(function () {
             })
         }
     }
-
     displaySearch()
 
     $("#button").on("click", function () {

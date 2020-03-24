@@ -26,6 +26,7 @@ font-weight: bolder;
    border-style: ridge;
    height: 250px;
    background:rgb(189, 216, 238);
+   font-weight: bolder;
 }
 button{
   background: #2196F3;
