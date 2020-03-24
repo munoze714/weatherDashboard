@@ -13,7 +13,7 @@ $(document).ready(function () {
             console.log(data)
             $("#displayCity").text(data.name + "(" + date + ")")
             var icon = data.weather[0].icon
-            var DisplayIcon = $("<img>").attr("src", "https://cors-anywhere.herokuapp.com/https://openweathermap.org/img/wn/" + icon + "@2x.png")
+            var DisplayIcon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + icon + "@2x.png")
             $("#displayTemp").text("Temperature: " + data.main.temp + "F")
             $("#displayWind").text("Wind Speed : " + data.wind.speed + "Mph")
             $("#displayHumidity").text("Humidity " + data.main.humidity + "%")
