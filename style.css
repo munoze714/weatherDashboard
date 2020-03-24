@@ -9,17 +9,11 @@ header {
 .col-2 {
   float: left;
   width: 25%;
-  padding: 0 10px;
-  /* margin: ; */
 }
 .col1 {
-  /* grid-column: col 1;
-  grid-row: row 2 / span 2; */
 background-color:#f1f1f1;
-/* max-height: 100px; */
 font-style: italic;
 font-weight: bolder;
-
 }
 .col2 {
    display: block;
@@ -28,7 +22,7 @@ font-weight: bolder;
    background:rgb(189, 216, 238);
    font-weight: bolder;
 }
-button{
+.button{
   background: #2196F3;
   color: white;
   font-size: 17px;
@@ -42,8 +36,11 @@ button{
   width: 100px;
   text-align: center;
   font-size: 15px;
-  font-weight: bolder;
   color: white;
   background-color: royalblue;
-   
 }
+
+@media only screen and (max-width: 1000px) {
+  .col-2 {
+ float: none;
+}}
