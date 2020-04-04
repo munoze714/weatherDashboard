@@ -76,7 +76,7 @@ $(document).ready(function () {
                 // console.log(icon)
                 // "http://openweathermap.org/img/wn/10d@2x.png>" url for icon
 
-                var weatherIcon = $("<img>").attr("src", "https://cors-anywhere.herokuapp.com/http://openweathermap.org/img/wn/" + icon + "@2x.png")
+                var weatherIcon = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + icon + "@2x.png")
                 var cardCol = $("<div>").attr("class", "col-2")
                 var cardDisplay = $("<div>").attr("class", "card")
                 var text = $('<p>')
