@@ -121,7 +121,7 @@ $(document).ready(function () {
     }
     displaySearch()
 
-    $("#button").on("click", function () {
+    $(".button").on("click", function () {
         // console.log("click");
         // console.log($("#inputSearch").val());
         searchWeather($("#inputSearch").val())
