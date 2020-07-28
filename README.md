@@ -1,24 +1,25 @@
-# weatherDashboard
-Get the current and future weather reports
-## Acceptance Criteria
+# Project Title:
 
-```
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-WHEN I open the weather dashboard
-THEN I am presented with the last searched city forecast
-```
+## Description:
 
+## Deployed URL
 
+## Table of Contents
 
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [License](#License)
+- [Questions](#Questions)
 
-https://munoze714.github.io/weatherDashboard/
+### Installation:
+
+### Usage:
+
+### Licence:
+
+### Questions:
+
+![alt text](https://avatars0.githubusercontent.com/u/59346164?v=4)
+
+[munoze714@gmail.com
+](munoze714@gmail.com)
